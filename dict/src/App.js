@@ -57,29 +57,19 @@ function App() {
                 setSyn('');
             })
     }
-    return ( <
-        div className = "App" >
-        <
-        div > < button id = "b1"
-        onClick = { change } > < i class = "fa-regular fa-sun" > < /i></button > < /div> <
-        div id = "div" >
-        <
-        h1 > DICTIONARY < /h1> <
-        input type = "text"
-        id = "in"
-        placeholder = 'Enter a word'
-        value = { word }
-        onChange = { wordEnter }
-        required > < /input> <
-        button id = "button"
-        onClick = { enter } > < i class = "fa-solid fa-magnifying-glass" > < /i></button > < br / >
-        <
-        div id = "d1" > < h3 > { definition } < /h3> <
-        h3 > { a } { parts } < /h3> <
-        h3 > { mean } { syn } < /h3> <
-        /div> <
-        /div> <
-        /div>
+    return ( 
+    <div className="App">
+      <div><button id="b1" onClick={change}><i class="fa-regular fa-sun"></i></button></div>
+        <div id="div">
+        <h1>DICTIONARY</h1>
+        <input type="text" id="in" placeholder='Enter a word' value={word} onChange={wordEnter} required></input>
+        <button  id="button" onClick={enter}><i class="fa-solid fa-magnifying-glass"></i></button><br/>
+        <div id="d1"><h3>{definition}</h3>
+        <h3>{a}{parts}</h3>
+        <h3>{mean}{syn}</h3>
+        </div>
+      </div>
+    </div>
     );
 }
 
