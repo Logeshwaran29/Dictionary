@@ -56,6 +56,7 @@
     border: 2.5px solid #0CAFFF;
     border-radius: 20px;
     transition: 1ms ease-in-out;
+    cursor: pointer;
 }
 .input, .button{
     background: transparent;
@@ -147,5 +148,44 @@
 
     100%{
       transform: scale(1);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .div{
+        height: 90%;
+        width: 90%;
+    }
+    .div2{
+        height: 7%;
+        width: 90%;
+    }
+    .input-div{
+        height: 80%;
+        padding: 1.5%;
+        gap: 2%;
+    }
+    .mode{
+        height: 90%;
+        width: 15%;
+        border-radius: 15px;
+        font-size: larger;
+    }
+    .div3{
+        font-size: larger;
+    }
+    .img{
+        height: 60%;
+        width: 90%;
+    }
+    .phonetic{
+        width: 100%;
+    }
+    .loading{
+        gap: 10%;
+    }
+    .dot{
+        height: .55rem;
+        width: .55rem;
     }
   }
