@@ -153,7 +153,11 @@
   }
 
   @media (max-width: 767px) {
+    .app{
+        align-items: normal;
+    }
     .div{
+        margin-top: 10%;
         height: 80%;
         width: 90%;
     }
