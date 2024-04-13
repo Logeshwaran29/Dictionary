@@ -4,16 +4,12 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    padding-top: env(safe-area-inset-top); /* Modern browsers */
-    padding-top: constant(safe-area-inset-top); /* For legacy browsers */
-}
-
 .app{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 100px);
+    overflow-y: auto; 
     transition: 1s ease-in-out;
 }
 
