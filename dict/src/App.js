@@ -71,9 +71,9 @@ function App() {
                 </div>
                 <div className='mode' onClick={(e) => setDarkMode(prevState => !prevState)}>
                     {darkmode ? (
-                        <i class="fa-solid fa-cloud-moon" />
+                        <i className="fa-solid fa-cloud-moon" />
                     ):(
-                        <i class="fa-solid fa-cloud-sun" />
+                        <i className="fa-solid fa-cloud-sun" />
                     )}
                 </div>
             </div>
@@ -105,7 +105,7 @@ function App() {
                                     <>
                                     <div className='ph-div' key={index}>
                                         <p>{`Phonetic : ${value.text}`}</p>
-                                        <i class="fa-solid fa-volume-high" onClick={(e) => playAudio(value.audio)}/>
+                                        <i className="fa-solid fa-volume-high" onClick={(e) => playAudio(value.audio)}/>
                                     </div>
                                     </>
                                 ):(
