@@ -51,74 +51,74 @@ function App() {
     return ( 
         <div className="app" style={styles}>
             <div className="div">
-            <div className="div1"><h2>DICTIONARY</h2></div>
-            <div className="div2">
-                <div className='input-div'>
-                    <button className="button" onClick={() =>{wordSearch();}} style={{color: darkmode ? 'white' : 'black'}}><i className="fa-solid fa-magnifying-glass"/></button><br/>
-                    <input  
-                        className="input"
-                        type="text" 
-                        placeholder='Enter a word' 
-                        value={word} 
-                        onChange={(e)=>setWord(e.target.value)}
-                        onKeyDown={ (e) =>{
-                            if (e.key === 'Enter') {
-                                wordSearch();  
-                            }
-                        }}
-                        style={{color: darkmode ? 'white' : 'black'}}
-                    />
+                <div className="div1"><h2>DICTIONARY</h2></div>
+                <div className="div2">
+                    <div className="input-group mb-3">
+                        <span className="input-group-text" id="basic-addon1" onClick={() =>{wordSearch();}} 
+                            style={{color: darkmode ? 'white' : 'black', backgroundColor: darkmode ? 'black' : 'white'}}>
+                            <i className="fa-solid fa-magnifying-glass"/>
+                        </span>
+                        <input 
+                            type='text'
+                            className="form-control"
+                            placeholder='Enter a word' 
+                            value={word} 
+                            onChange={(e)=>setWord(e.target.value)}
+                            onKeyDown={ (e) =>{
+                                if (e.key === 'Enter') {
+                                    wordSearch();  
+                                }
+                            }}
+                            style={{color: darkmode ? 'white' : 'black'}}
+                        />
+                        <button type="button" className={darkmode ? "btn btn-outline-light" : "btn btn-outline-dark"} onClick={(e) => setDarkMode(prevState => !prevState)}>
+                            {darkmode ? (
+                                <i className="fa-solid fa-cloud-moon" />
+                            ):(
+                                <i className="fa-solid fa-cloud-sun" />
+                            )}
+                        </button>
+                    </div>
                 </div>
-                <div className='mode' onClick={(e) => setDarkMode(prevState => !prevState)}>
-                    {darkmode ? (
-                        <i className="fa-solid fa-cloud-moon" />
-                    ):(
-                        <i className="fa-solid fa-cloud-sun" />
-                    )}
-                </div>
-            </div>
-            <div className="div3">
-                {load ? (
-                    <>
-                        <div className='loading'>
-                          <div className="dot"></div>
-                          <div className="dot"></div>
-                          <div className="dot"></div>
-                          <div className="dot"></div>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                    {notImg !=='' && open ? (
-                    <>
-                        <p>{definition}</p>
-                        <img className='img' src={notImg} alt="img" />
-                    </>
-                    ):(
+                <div className="div3">
+                    {load ? (
+                            <button className="btn" id='loader' type="button">
+                                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                <span role="status">Loading...</span>
+                            </button>
+                    ) : (
+                        <>
+                        {notImg !=='' && open ? (
                         <>
                             <p>{definition}</p>
-                            <p>{mean}</p>
-                            <p>{parts}</p>
-                            <div className='phonetic'>
-                            {phonetics.map((value, index) => (
-                                value.text !== '' && value.audio !== '' ? (
-                                    <>
-                                    <div className='ph-div' key={index}>
-                                        <p>{`Phonetic : ${value.text}`}</p>
-                                        <i className="fa-solid fa-volume-high" onClick={(e) => playAudio(value.audio)}/>
-                                    </div>
-                                    </>
-                                ):(
-                                    <></>
-                                )
-                            ))}
+                            <img className='img' src={notImg} alt="img" />
+                        </>
+                        ):(
+                            <div>
+                                <p>{definition}</p>
+                                <p>{mean}</p>
+                                <p>{parts}</p>
+                                <div>
+                                    {phonetics.map((value, index) => (
+                                        value.text !== '' && value.audio !== '' ? (
+                                            <div className="d-flex align-items-center my-2" key={index}>
+                                                <p className="mb-0">{`Phonetic : ${value.text}`}</p>
+                                                <button
+                                                    className="btn p-0 ms-2"
+                                                    onClick={() => playAudio(value.audio)}
+                                                >
+                                                    <i className="fa-solid fa-volume-high" />
+                                                </button>
+                                            </div>
+                                        ) : null
+                                    ))}
+                                </div>
                             </div>
+                        )}
                         </>
                     )}
-                    </>
-                )}
+                </div>
             </div>
-          </div>
         </div>
     );
 }
